@@ -12,10 +12,10 @@ source:
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: ${PYTHON} setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
-  build:
+  host:
     - python
     - setuptools
   run:
@@ -39,3 +39,4 @@ extra:
   recipe-maintainers:
     - goanpeca
     - jschueller
+    - mingwandroid
