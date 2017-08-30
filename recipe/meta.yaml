@@ -34,6 +34,9 @@ about:
     A library to support the Internationalised Domain Names in Applications
     (IDNA) protocol as specified in RFC 5891. This version of the protocol
     is often referred to as "IDNA2008".
+  doc_source: 
+  dev_source: https://github.com/kjd/idna
+  doc_source_url:
 
 extra:
   recipe-maintainers:
