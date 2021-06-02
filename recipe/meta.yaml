@@ -36,7 +36,7 @@ about:
   home: https://github.com/kjd/idna
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE.txt
+  license_file: LICENSE.md
   summary: Internationalized Domain Names in Applications (IDNA).
   description: |
     A library to support the Internationalised Domain Names in Applications
