@@ -15,7 +15,7 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - python
     - pip
     - wheel
     - setuptools
@@ -29,6 +29,7 @@ test:
     - idna.compat
   requires:
     - pip
+    - python <3.10
   commands:
     - pip check
 
