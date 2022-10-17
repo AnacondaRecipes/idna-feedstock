@@ -19,6 +19,7 @@ requirements:
     - python
     - pip
     - wheel
+    # setuptools is needed for legacy users, see https://github.com/kjd/idna/commit/9234d29b38e56e863db03af5980819c031221725
     - setuptools
   run:
     - python
