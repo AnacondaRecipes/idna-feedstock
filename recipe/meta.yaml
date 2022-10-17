@@ -15,7 +15,7 @@ build:
 
 requirements:
   host:
-    - flit_core >=3.2,<4
+    - flit-core >=3.2,<4
     - python
     - pip
     - wheel
@@ -31,7 +31,6 @@ test:
     - idna.compat
   requires:
     - pip
-    - python <3.10
   commands:
     - pip check
 
