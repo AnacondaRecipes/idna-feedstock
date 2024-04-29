@@ -1,17 +1,18 @@
-{% set version = "3.4" %}
+{% set name = "idna" %}
+{% set version = "3.7" %}
 
 package:
-  name: idna
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/i/idna/idna-{{ version }}.tar.gz
-  sha256: 814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vvv
   skip: True  # [py<36]
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
 
 requirements:
   host:
@@ -29,6 +30,7 @@ test:
     - idna
     - idna.codec
     - idna.compat
+    - idna.core
   requires:
     - pip
   commands:
