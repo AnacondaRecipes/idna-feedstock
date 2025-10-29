@@ -16,10 +16,9 @@ build:
 
 requirements:
   host:
-    - flit-core >=3.11,<4
     - python
     - pip
-    # setuptools is needed for legacy users, see https://github.com/kjd/idna/commit/9234d29b38e56e863db03af5980819c031221725
+    - flit-core >=3.11,<4
   run:
     - python
   run_constrained:
@@ -29,6 +28,8 @@ requirements:
     - flake8 >=7.1.1
 
 test:
+  source_files:
+    - tests
   imports:
     - idna
     - idna.codec
@@ -36,8 +37,10 @@ test:
     - idna.core
   requires:
     - pip
+    - pytest
   commands:
     - pip check
+    - pytest -v tests
 
 about:
   home: https://github.com/kjd/idna
