@@ -1,31 +1,30 @@
 {% set name = "idna" %}
-{% set version = "3.7" %}
+{% set version = "3.11" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902
 
 build:
   number: 0
-  skip: True  # [py<36]
+  skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
 
 requirements:
   host:
-    - flit-core >=3.2,<4
     - python
     - pip
-    - wheel
-    # setuptools is needed for legacy users, see https://github.com/kjd/idna/commit/9234d29b38e56e863db03af5980819c031221725
-    - setuptools
+    - flit-core >=3.11,<4
   run:
     - python
 
 test:
+  source_files:
+    - tests
   imports:
     - idna
     - idna.codec
@@ -33,8 +32,11 @@ test:
     - idna.core
   requires:
     - pip
+    - pytest >=8.3.2
   commands:
     - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    - pytest -v tests
 
 about:
   home: https://github.com/kjd/idna
