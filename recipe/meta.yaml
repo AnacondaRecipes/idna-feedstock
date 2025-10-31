@@ -21,11 +21,6 @@ requirements:
     - flit-core >=3.11,<4
   run:
     - python
-  run_constrained:
-    - ruff >=0.6.2
-    - mypy >=1.11.2
-    - pytest >=8.3.2
-    - flake8 >=7.1.1
 
 test:
   source_files:
@@ -37,7 +32,7 @@ test:
     - idna.core
   requires:
     - pip
-    - pytest
+    - pytest >=8.3.2
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
