@@ -1,5 +1,5 @@
 {% set name = "idna" %}
-{% set version = "3.18" %}
+{% set version = "3.20" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848
+  sha256: a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44
 
 build:
   number: 0
@@ -21,6 +21,13 @@ requirements:
     - flit-core >=3.11,<5
   run:
     - python
+  run_constrained:
+    - ruff >=0.16.0
+    - mypy >=1.11.2
+    - ty >=0.0.37
+    - pytest >=8.3.2
+    - hypothesis >=6.141.1
+    - coverage >=7.10.0
 
 test:
   source_files:
