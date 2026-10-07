@@ -33,6 +33,7 @@ test:
   requires:
     - pip
     - pytest >=8.3.2
+    - hypothesis >=6.141.1
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
