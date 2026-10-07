@@ -12,6 +12,8 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
+  entry_points:
+    - idna = idna.cli:main
   skip: true  # [py<39]
 
 requirements:
@@ -37,6 +39,7 @@ test:
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    - idna --help
     - pytest -v tests
 
 about:
